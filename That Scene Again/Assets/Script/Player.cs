@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] GameObject deadBodyPrefab;
-    GameObject deadBody;
+    public GameObject deadBody;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Spine") || other.CompareTag("Meteorite"))

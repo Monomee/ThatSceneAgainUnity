@@ -29,8 +29,8 @@ public class SetCamera : MonoBehaviour
         if (other != null && other.CompareTag("Player")) 
         { 
             Debug.Log("out");
-            mainCam.gameObject.SetActive(true);
-            newCam.SetActive(false);
+            if (mainCam != null) mainCam.gameObject.SetActive(true);
+            if (newCam != null) newCam.SetActive(false);
         }
     }
 }
