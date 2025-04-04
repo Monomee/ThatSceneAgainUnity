@@ -1767,8 +1767,6 @@ MonoBehaviour:
     to start postion and go to the left, drag object to take the key
   textInstruction: {fileID: 4244357822403181316, guid: 6996d78d4cce59b4b8658ae1858da91e, type: 3}
   canvas: {fileID: 1390810559}
-  backgroundMusic: {fileID: 0}
-  endMusic: {fileID: 0}
 --- !u!1 &675912904
 GameObject:
   m_ObjectHideFlags: 0
@@ -4590,7 +4588,7 @@ Transform:
   m_GameObject: {fileID: 1553447237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.25, y: -0.49, z: 0}
+  m_LocalPosition: {x: -12.25, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
