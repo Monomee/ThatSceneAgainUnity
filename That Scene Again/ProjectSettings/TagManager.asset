@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Ladder
   - Meteorite
+  - Music
   layers:
   - Default
   - TransparentFX

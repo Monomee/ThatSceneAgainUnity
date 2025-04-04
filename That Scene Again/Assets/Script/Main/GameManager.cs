@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public const string LEVEL_SAVE_KEY = @"Level";
     public const int FIRST_LEVEL = 0;
+    const int NUMBERS_LEVEL = 7;
+
     public static GameManager Instance;
     private void OnEnable()
     {
@@ -39,26 +41,41 @@ public class GameManager : MonoBehaviour
         "6. <Update later>",
         "7. Top right first, take the key by enter password (using Morse code), then return to start postion and go to the left, drag object to take the key"
     };
-    public List<GameObject> levelConfig = new List<GameObject>();
-    public Dictionary<int, GameObject> levelContainer = new Dictionary<int, GameObject>();
+    [SerializeField] GameObject lastScene;
     GameObject currentLevelObj;
-
     int currentLevel;
 
+    //music
+    AudioSource[] music;
+    AudioSource backgroundMusic;
+    AudioSource endMusic;
+
+    private void Awake()
+    {
+        music = AudioManager.Instance.GetComponents<AudioSource>();
+        backgroundMusic = music[0];
+        endMusic = music[1];
+    }
     // Start is called before the first frame update
     void Start()
     {
-        int idLevel = FIRST_LEVEL;
-
-        foreach (GameObject level in levelConfig)
-        {
-            levelContainer.Add(idLevel, level);
-            idLevel++;
-        }
         currentLevel = GetCurrentSavedLevel();
 
         LoadCurrentLevel();
     }
+    public GameObject LoadLevelPrefab(int levelIndex)
+    {
+        string path = $"Levels/{levelIndex}"; // Đường dẫn tới prefab trong Resources
+        GameObject levelPrefab = Resources.Load<GameObject>(path);
+
+        if (levelPrefab == null)
+        {
+            Debug.LogError($"Không tìm thấy level {levelIndex} trong Resources!");
+        }
+
+        return levelPrefab;
+    }
+    GameObject levelPrefab;
     public void LoadCurrentLevel()
     {
         if (currentLevelObj != null) 
@@ -68,11 +85,17 @@ public class GameManager : MonoBehaviour
 
         Destroy(Player.GetComponent<Player>().deadBody);
         Player.transform.position = startPosition.position;
+
+        GameObject levelPrefab = LoadLevelPrefab(currentLevel+1);
+        if (levelPrefab != null)
+        {
+            currentLevelObj = Instantiate(levelPrefab);
+        }
+
         UpdateObjectsBaseOnLevel(currentLevel);
         UpdateLogicBaseOnLevel(currentLevel);
-        currentLevelObj = Instantiate(levelContainer[currentLevel]);
-        Debug.Log(currentLevel);
 
+        Debug.Log(currentLevel);
     }
     
     void UpdateLogicBaseOnLevel(int currentLevel)
@@ -131,14 +154,22 @@ public class GameManager : MonoBehaviour
     public void SetNextLevel()
     {
         currentLevel++;
-        if (currentLevel >= levelConfig.Count)
+        if (currentLevel >= NUMBERS_LEVEL)
         {
-            currentLevel = FIRST_LEVEL;
+            GoToLastScene();
         }
-        GoToNextLevel();
+        GoToNextLevel();    
     }
-
-    //
+    public void GoToLastScene()
+    {
+        currentLevel = FIRST_LEVEL;
+        music[0].Pause();
+        music[1].Play();
+        lastScene.SetActive(true);
+        PauseGame();
+    }
+    
+    //---------------
     [SerializeField] GameObject textInstruction;
     [SerializeField] Transform canvas;
     GameObject newText;
@@ -151,8 +182,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Destroy(newText);
     }
+    public void ContinueAfterLoop()
+    {
+        Time.timeScale = 1;
+        music[0].Play();
+        music[1].Stop();
+    }
     public void LoadMenu()
     {
+        music[0].Play();
+        music[1].Stop();
         Destroy(newText);
         SceneManager.LoadScene("Menu");
     }
