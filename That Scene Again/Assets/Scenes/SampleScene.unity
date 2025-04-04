@@ -414,8 +414,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1679614676}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 527977870}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadInstruction
         m_Mode: 1
         m_Arguments:
@@ -1171,8 +1171,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1679614676}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 527977870}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ContinueAfterLoop
         m_Mode: 1
         m_Arguments:
@@ -1709,6 +1709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 527977869}
+  - component: {fileID: 527977870}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1734,6 +1735,40 @@ Transform:
   - {fileID: 2100968397}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527977870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527977868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fe5232e323e1147b40b52576137b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: {fileID: 284290679}
+  contentContainer:
+  - 1. Just take the key
+  - 2. Don't trust anything
+  - 3. Don't move without permission
+  - 4. Reverse movement
+  - 5. Moon's gravity
+  - 6. New way to move
+  - 7. Think outside of the box
+  instructionContainer:
+  - 1. Take the key and complete the game, ez right?
+  - 2. Look at the signs, something will be appeared, move carefully.
+  - 3. Eyes open, don't move. Eyes close, move.
+  - 4. Reverve, left is right, right is left.
+  - 5. Jump higher, fall slower, take advantage of that
+  - 6. <Update later>
+  - 7. Top right first, take the key by enter password (using Morse code), then return
+    to start postion and go to the left, drag object to take the key
+  textInstruction: {fileID: 4244357822403181316, guid: 6996d78d4cce59b4b8658ae1858da91e, type: 3}
+  canvas: {fileID: 1390810559}
+  backgroundMusic: {fileID: 0}
+  endMusic: {fileID: 0}
 --- !u!1 &675912904
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,8 +4421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1679614676}
-  deadBodyPrefab: {fileID: 9152378199112437713, guid: cf6d87f4c61f2724783f4c5a45a982b8, type: 3}
-  deadBody: {fileID: 0}
 --- !u!1 &1550007877
 GameObject:
   m_ObjectHideFlags: 0
@@ -4743,18 +4776,8 @@ MonoBehaviour:
   Player: {fileID: 1498404836}
   reverse: 0
   startPosition: {fileID: 1553447238}
-  content: {fileID: 284290679}
   lastScene: {fileID: 726974562}
-  levelConfig:
-  - {fileID: 2154369741333705479, guid: 72417fe65a2bf3f4a94b30c02a8bea76, type: 3}
-  - {fileID: 4893538074702991162, guid: 405876abfb47a8a4099ffd2e1ada9859, type: 3}
-  - {fileID: 7062990642951516306, guid: 07545a8061b41904aa7690c71e1a6bdb, type: 3}
-  - {fileID: 2154369741333705479, guid: 72417fe65a2bf3f4a94b30c02a8bea76, type: 3}
-  - {fileID: 50180465358209438, guid: 9b50cbe0a83f0f24c9d3fd4c2464ed1f, type: 3}
-  - {fileID: 2154369741333705479, guid: 72417fe65a2bf3f4a94b30c02a8bea76, type: 3}
-  - {fileID: 1941453273772172754, guid: f16946aae9236c34d9a5be29eab7065b, type: 3}
-  textInstruction: {fileID: 4244357822403181316, guid: 6996d78d4cce59b4b8658ae1858da91e, type: 3}
-  canvas: {fileID: 1390810559}
+  currentLevel: 0
 --- !u!1 &1802533062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5101,8 +5124,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1679614676}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 527977870}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
@@ -5234,8 +5257,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1679614676}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 527977870}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
@@ -5953,8 +5976,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1679614676}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 527977870}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:

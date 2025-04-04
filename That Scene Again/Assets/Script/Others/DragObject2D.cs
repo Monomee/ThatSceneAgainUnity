@@ -14,8 +14,7 @@ public class DragObject2D : MonoBehaviour
         {
             //Nove object, taking into account original offset.
             this.transform.position = cam.ScreenToWorldPoint(Input.mousePosition) + offset;
-        }
-        
+        }      
     }
     private void OnMouseDown()
     {

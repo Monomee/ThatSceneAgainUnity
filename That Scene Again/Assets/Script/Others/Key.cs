@@ -12,7 +12,7 @@ public class Key : MonoBehaviour
     Vector3 tempPos = new Vector3();
 
     [SerializeField] GameObject notification = null;
-    public GameObject door;
+    [SerializeField] GameObject goWillBeDestroy;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,7 +34,7 @@ public class Key : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(door);
+            Destroy(goWillBeDestroy);
             Destroy(this.gameObject);
             if(notification != null) notification.SetActive(true);
         }

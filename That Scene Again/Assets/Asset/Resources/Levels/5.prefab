@@ -865,5 +865,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.2
   frequency: 1
-  notification: {fileID: 0}
-  door: {fileID: 7029274690790903059}
+  goWillBeDestroy: {fileID: 7029274690790903059}

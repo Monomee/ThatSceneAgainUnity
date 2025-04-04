@@ -8,10 +8,8 @@ public class KeyPadScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI input;
     string numberStr;
-    string answer = "2005";
-
-    public GameObject blank;
-
+    const string ANSWER = "2005";
+    [SerializeField] GameObject blank;
     private void Awake()
     {
         input.text = string.Empty;
@@ -34,7 +32,7 @@ public class KeyPadScript : MonoBehaviour
     }
     public void Enter()
     {
-        if (input.text.Equals(answer))
+        if (input.text.Equals(ANSWER))
         {
             input.text = "Correct answer!";
             blank.SetActive(false);

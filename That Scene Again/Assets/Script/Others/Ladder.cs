@@ -17,13 +17,11 @@ public class Ladder : MonoBehaviour
         rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         defaultGravityScale = rb.gravityScale;
     }
-
     // Update is called once per frame
     void Update()
     {
         Climb();
     }
-
     void Climb()
     {
         if (canClimb)
@@ -33,7 +31,6 @@ public class Ladder : MonoBehaviour
                 vertical = Input.GetAxis("Vertical");
                 rb.gravityScale = 0;
                 rb.velocity = new Vector2(rb.velocity.x, vertical * climbSpeed);
-
             }
         }
         else
@@ -41,22 +38,18 @@ public class Ladder : MonoBehaviour
             rb.gravityScale = defaultGravityScale;
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other != null && other.CompareTag(rb.gameObject.tag))
         {
             canClimb = true;
-            //Debug.Log("CanClimb: "+ canClimb);
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other != null && other.CompareTag(rb.gameObject.tag))
         {
             canClimb = false;
-            //Debug.Log("CanClimb: " + canClimb);
         }
     }
 }

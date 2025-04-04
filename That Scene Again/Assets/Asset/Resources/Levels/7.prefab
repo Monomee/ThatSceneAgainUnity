@@ -4533,7 +4533,7 @@ MonoBehaviour:
   amplitude: 0.5
   frequency: 1
   notification: {fileID: 6188592751090998242}
-  door: {fileID: 1709225456696597450}
+  goWillBeDestroy: {fileID: 1709225456696597450}
 --- !u!212 &3991689475290251108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10916,4 +10916,4 @@ MonoBehaviour:
   amplitude: 0.2
   frequency: 1
   notification: {fileID: 0}
-  door: {fileID: 6675575109351984313}
+  goWillBeDestroy: {fileID: 6675575109351984313}

@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] Slider sliderMusic;
     [SerializeField] AudioMixer myAudioMixer;
+    public AudioSource backgroundMusic;
+    public AudioSource endMusic;
 
     public static AudioManager Instance;
 
@@ -15,17 +17,20 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance == null)
         {
-            Instance = this;
+            Instance = this;            
             DontDestroyOnLoad(gameObject); 
         }
         else
         {
             Destroy(gameObject); 
         }
+        if(sliderMusic == null) sliderMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<Slider>();
     }
     private void Start()
     {
         SetVolumeMusic();
+        backgroundMusic = this.GetComponents<AudioSource>()[0];
+        endMusic = this.GetComponents<AudioSource>()[1];
     }
     public void SetVolumeMusic()
     {

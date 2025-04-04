@@ -151,7 +151,7 @@ MonoBehaviour:
   amplitude: 0.2
   frequency: 1
   notification: {fileID: 0}
-  door: {fileID: 1108807381503583570}
+  goWillBeDestroy: {fileID: 1108807381503583570}
 --- !u!4 &4347188519036834789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2398321300362273899, guid: 8537ff5d016628241960fa5337d19347, type: 3}

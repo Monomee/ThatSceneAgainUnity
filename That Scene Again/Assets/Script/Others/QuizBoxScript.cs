@@ -4,29 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class QuizBoxScript : MonoBehaviour
-{   
-    List<string> password = new List<string>();
+{
+    string[] password = { "..---" , "-----" , "-----" , "....." };
     public Text text;
 
     [SerializeField] GameObject on;
     [SerializeField] GameObject off;
-    bool status;
+    bool status = false;
     // Start is called before the first frame update
     void Awake()
     {
-        status = false;
         text.text = "";
-        password.Add("..---");
-        password.Add("-----");
-        password.Add("-----");
-        password.Add(".....");
     }
-
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         SetStatus();
-        Debug.Log(status);
         if (status)
         {
             StartCoroutine(passwordDisplay());

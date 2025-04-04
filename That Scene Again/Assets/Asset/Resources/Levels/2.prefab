@@ -1701,8 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.2
   frequency: 1
-  notification: {fileID: 0}
-  door: {fileID: 2747756236906912843}
+  goWillBeDestroy: {fileID: 2747756236906912843}
 --- !u!1001 &4640026508530732914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1820,8 +1819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.2
   frequency: 1
-  notification: {fileID: 0}
-  door: {fileID: 5540128890942907270}
+  goWillBeDestroy: {fileID: 5540128890942907270}
 --- !u!4 &7002010014299089689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2398321300362273899, guid: 8537ff5d016628241960fa5337d19347, type: 3}

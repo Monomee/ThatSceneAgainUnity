@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 133050736}
   m_Layer: 0
   m_Name: AudioManangement
-  m_TagString: Music
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,8 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderMusic: {fileID: 2121781279}
   myAudioMixer: {fileID: 24100000, guid: 6c50a9d50df4db5498bea8d17959d090, type: 2}
-  backgroundTheme: {fileID: 8300000, guid: 344cedc872a8d9e4d82baa0c3cdf37a9, type: 3}
-  endTheme: {fileID: 8300000, guid: efc6ca7bcb718be41832d6fe12ae5b55, type: 3}
 --- !u!82 &133050736
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4633,7 +4631,7 @@ GameObject:
   - component: {fileID: 2121781279}
   m_Layer: 5
   m_Name: Music
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

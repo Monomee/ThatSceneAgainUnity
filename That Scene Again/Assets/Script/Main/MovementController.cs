@@ -16,7 +16,6 @@ public class MovementController : MonoBehaviour
         Move();
         Jump();
     }
-
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
@@ -24,7 +23,6 @@ public class MovementController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
-
     void Move()
     {
         dirX = Input.GetAxis("Horizontal");
