@@ -9,11 +9,11 @@ public class Timer : MonoBehaviour
     public float remainingTime;
     public float countdownTime;
 
-    Player player;
+    PlayerCollide player;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCollide>();
         remainingTime = countdownTime;
     }
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
         } else if (remainingTime < 0)
         {
             remainingTime = countdownTime;
-            player.DeadState();
+            player.Dead();
         }
         int minute = Mathf.FloorToInt(remainingTime / 60);
         int second = Mathf.FloorToInt(remainingTime % 60);

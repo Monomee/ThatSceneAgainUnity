@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
     }
     void UpdateObjectsBaseOnLevel(int currentLevel)
     {
-        UIManager.Instance.content.text = UIManager.Instance.contentContainer[currentLevel].ToString();
+        UIManager.Instance.SetUIBaseOnLevel(currentLevel);
         switch (currentLevel) 
         {
             case 6: Barrier.SetActive(false); break;

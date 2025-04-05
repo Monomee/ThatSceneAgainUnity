@@ -66,4 +66,8 @@ public class UIManager : MonoBehaviour
             isClicked = true;
         }
     }
+    public void SetUIBaseOnLevel(int level)
+    {
+        content.text = contentContainer[level].ToString();
+    }
 }

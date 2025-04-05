@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerCollide : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     //[SerializeField] GameObject deadBodyPrefab;
@@ -11,10 +11,10 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Spine") || other.CompareTag("Meteorite"))
         {
-            DeadState();
+            Dead();
         }
     }
-    public void DeadState()
+    public void Dead()
     {
         //if (deadBody != null)
         //{

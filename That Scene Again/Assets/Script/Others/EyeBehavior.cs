@@ -10,7 +10,7 @@ public class EyeBehaviour : MonoBehaviour
     [SerializeField] GameObject green;
 
     [SerializeField] Timer timer;
-    Player player;
+    PlayerCollide player;
     Transform targetEye;
     Vector3 lastPosition;
     bool isMoving;
@@ -18,7 +18,7 @@ public class EyeBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCollide>();
         targetEye = GameObject.FindGameObjectWithTag("Player").transform;
         lastPosition = targetEye.transform.position;
         StartCoroutine(EyeRoutine());
@@ -39,7 +39,7 @@ public class EyeBehaviour : MonoBehaviour
         if(theEyeOpen.activeSelf && isMoving)
         {
             Debug.Log("Dead");
-            player.DeadState();
+            player.Dead();
             timer.remainingTime = timer.countdownTime;
         }
     }
